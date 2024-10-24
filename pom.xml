@@ -41,6 +41,13 @@
             <version>4.13.2</version> <!-- Ensure you're using JUnit 4 if using cucumber-junit -->
         </dependency>
 
+        <!--Makes all browers and version automatically compatible-->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.3</version> <!-- Use the latest version available -->
+        </dependency>
+
     </dependencies>
     
 </project>

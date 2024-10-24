@@ -1,4 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.634 sec
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.899 s <<< FAILURE! -- in runner.TestRunner
+Logged in User View.Validate user is able to view after login -- Time elapsed: 0.165 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at stepDefinitions.SignInSteps.user_navigates_to_Login_page(SignInSteps.java:28)
+	at ✽.User navigates to the Login page(file:///C:/Users/anjto/SeleniumJavaFramework/src/test/java/features/SignIn.feature:4)
+
