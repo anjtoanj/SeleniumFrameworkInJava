@@ -1,2 +1,3 @@
-utility\BrowserDriver.class
+stepDefinitions\SignInSteps.class
+hooks\hook.class
 runner\TestRunner.class
