@@ -50,6 +50,13 @@
             <version>5.5.3</version> <!-- Use the latest version available -->
         </dependency>
 
+        <!--Makes all browers and version automatically compatible-->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.3</version> <!-- Use the latest version available -->
+        </dependency>
+
     </dependencies>
     
 </project>
