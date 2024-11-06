@@ -14,7 +14,6 @@ public class DriverManager {
     // Private constructor to prevent instantiation
     private DriverManager() {}
 
-
     // Enum for supported browsers
     public enum BrowserType {
         CHROME,
@@ -23,7 +22,7 @@ public class DriverManager {
     }
 
     // Method to initialize the WebDriver
-    public static WebDriver initializeDriver(String browserName) {
+    public static WebDriver getDriver(String browserName) {
         if (driver == null) {
 
             BrowserType browserType = BrowserType.valueOf(browserName.toUpperCase());
@@ -52,13 +51,6 @@ public class DriverManager {
         return driver;
     }
 
-    // Method to get the WebDriver instance
-    public static WebDriver getDriver(String browser) {
-        if (driver == null) {
-            throw new IllegalStateException("Driver not initialized. Call initializeDriver first.");
-        }
-        return driver;
-    }
 
     // Method to quit the WebDriver
     public static void quitDriver() {
