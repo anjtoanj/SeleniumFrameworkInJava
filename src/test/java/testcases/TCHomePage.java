@@ -14,7 +14,7 @@ public class TCHomePage {
     private WebDriver driver;
     private HomePagev1 homePagev1;
 
-  //  @BeforeTest
+   @BeforeTest
     public void setUp() {
         // Set up WebDriver (using ChromeDriver )
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -30,12 +30,12 @@ public class TCHomePage {
         homePagev1.openhomePage();
     }
 
- //   @Test
+    @Test
     public void testHomePage() {
         Assert.assertEquals(driver.getTitle(),"Auckland Council");
     }
 
-  //  @AfterTest
+    @AfterTest
     public void tearDown() {
         // Close the browser after tests
         if (driver != null) {
