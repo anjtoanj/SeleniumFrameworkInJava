@@ -14,4 +14,4 @@ runner\TestRunner ---> features \ HomePagev1feature.feature ---> stepDefinitions
 
 Workflow in GitHub
 -----------
-Selenium in TestNG - CI
+Selenium with TestNG - CI
