@@ -16,25 +16,28 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+     # Checkout the code
+    - name: Checkout code
+    - uses: actions/checkout@v2
+
+    # Set up JDK 21
     - name: Set up JDK 21
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v3
       with:
         java-version: '21'
-        distribution: 'temurin'
+        distribution: 'adoptopenjdk'
         cache: maven
         
     # Check Java version (optional but helps with debugging)
     - name: Check Java version
       run: java -version
      
-     # Cache dependencies (optional but can speed up builds)
+     # Cache Maven dependencies (optional but can speed up builds)
     - name: Cache Maven dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v2
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -44,9 +47,9 @@ jobs:
     - uses: browser-actions/setup-chrome@latest
     - run: chrome --version   
     
+    # Build the project using Maven
     - name: Build with Maven
-     # run: mvn -B package --file pom.xml
-      run: mvn clean install
+      run: mvn clean install -B
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
