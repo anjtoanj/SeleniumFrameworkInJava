@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="BrowserTestSuite" parallel="tests" thread-count="3">
+    <test name="Test with Chrome">
+        <parameter name="browserName" value="Chrome" />
+        <classes>
+            <class name="testcases.TCMultiBrowserCheck" />
+        </classes>
+    </test>
+
+    <test name="Test with Edge">
+        <parameter name="browserName" value="Edge" />
+        <classes>
+            <class name="testcases.TCMultiBrowserCheck" />
+        </classes>
+    </test>
+</suite>

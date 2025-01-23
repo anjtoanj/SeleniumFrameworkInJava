@@ -6,21 +6,31 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import pages.HomePagev1;
 
-public class TCHomePage {
+public class TCMultiBrowserCheck {
     private WebDriver driver;
     private HomePagev1 homePagev1;
 
-   //@BeforeTest
-    public void setUp() {
+    @BeforeTest
+    @Parameters("browserName")
+    public void setUp(String browserName) {
+        System.out.println("Chrome Browser");
         // Set up WebDriver (using ChromeDriver )
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(chromeOptions);
+        if (browserName.equalsIgnoreCase("Chrome")){
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--remote-allow-origins=*");
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver(chromeOptions);
+        }
+         else if(browserName.equalsIgnoreCase("edge")){
+            WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();
+        }
         driver.manage().window().maximize();
 
         // Initialize the base page
@@ -35,7 +45,7 @@ public class TCHomePage {
         Assert.assertEquals(driver.getTitle(),"Auckland Council");
     }
 
-   // @AfterTest
+    @AfterTest
     public void tearDown() {
         // Close the browser after tests
         if (driver != null) {

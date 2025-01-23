@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="BrowserTestSuite" >
+    <test name="Test with Selenium Grid">
+        <parameter name="browserName" value="Chrome" />
+        <classes>
+            <class name="testcases.TCSeleniumGrid" />
+        </classes>
+    </test>
+
+</suite>

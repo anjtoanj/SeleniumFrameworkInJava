@@ -10,11 +10,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import pages.HomePagev1;
 
-public class TCHomePage {
+public class TCParallelTesting {
     private WebDriver driver;
     private HomePagev1 homePagev1;
 
-   //@BeforeTest
+    @BeforeTest
     public void setUp() {
         // Set up WebDriver (using ChromeDriver )
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -35,7 +35,7 @@ public class TCHomePage {
         Assert.assertEquals(driver.getTitle(),"Auckland Council");
     }
 
-   // @AfterTest
+    @AfterTest
     public void tearDown() {
         // Close the browser after tests
         if (driver != null) {
